@@ -1,4 +1,6 @@
-﻿<div class="container mt-4">
+﻿@model IEnumerable<HouseKeeping.Models.Housekeeper>;
+
+<div class="container mt-4">
   <div class="button-group gap-2 mb-4">
     <button data-bs-toggle="modal" data-bs-target="#housekeeperModal" class="btn btn-primary">Add Housekeeper</button>
     <a href="/Housekeeper/List" class="btn btn-danger">Remove Housekeeper</a>
@@ -7,38 +9,28 @@
   <h4 class="mb-4">Our Housekeepers</h4>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var housekeeper in Model)
+    {
+      <div class="col">
+        <a href="/housekeepers/@housekeeper.Id" class="card-link">
+        <div class="card h-100 shadow-sm text-center">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h5 class="card-title mb-0">@housekeeper.Name</h5>
+          </div>
+        </div>
+        </a>
+      </div>
+    }
+  @* <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100 shadow-sm text-center">
         <div class="card-body d-flex align-items-center justify-content-center">
           <h5 class="card-title mb-0">Alice Johnson</h5>
         </div>
       </div>
-    </div>
+    </div> *@
 
-    <div class="col">
-      <div class="card h-100 shadow-sm text-center">
-        <div class="card-body d-flex align-items-center justify-content-center">
-          <h5 class="card-title mb-0">Michael Smith</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100 shadow-sm text-center">
-        <div class="card-body d-flex align-items-center justify-content-center">
-          <h5 class="card-title mb-0">Sophie Lee</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100 shadow-sm text-center">
-        <div class="card-body d-flex align-items-center justify-content-center">
-          <h5 class="card-title mb-0">Daniel Brown</h5>
-        </div>
-      </div>
-    </div>
-  </div>
+   
 </div>
 
 
@@ -51,10 +43,10 @@
                 </div>
                 <div class="modal-body">
                     <!-- Form for adding housekeeper -->
-                    <form action="/Housekeeper/Add" method="POST">
+                    <form asp-controller="Home" asp-action="AddHousekeeper" method="POST">
                         <div class="mb-3">
                             <label for="housekeeperName" class="form-label">Housekeeper Name</label>
-                            <input type="text" class="form-control" id="housekeeperName" name="housekeeperName" required>
+                            <input type="text" class="form-control" id="housekeeperName" name="Name" required>
                         </div>
                         <button type="submit" class="btn btn-success w-100">Submit</button>
                     </form>

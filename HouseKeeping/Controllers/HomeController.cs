@@ -59,6 +59,22 @@ public class HomeController : Controller
         HttpContext.Session.SetString("AdminUserName", admin.Username);
         return RedirectToAction("GetAllHousekeepers");
     }
+    [HttpPost]
+    [Route("/housekeeper/add")]
+    public IActionResult AddHousekeeper(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            ViewBag.Error = "Housekeeper name cannot be empty.";
+            return View("Housekeepers", _dbContext.Housekeepers.ToList());
+        }
+
+        var housekeeper = new Housekeeper { Name = name };
+        _dbContext.Housekeepers.Add(housekeeper);
+        _dbContext.SaveChanges();
+
+        return RedirectToAction("GetAllHousekeepers");
+    }
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

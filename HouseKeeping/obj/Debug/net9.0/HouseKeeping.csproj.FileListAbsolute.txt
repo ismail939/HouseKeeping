@@ -226,5 +226,6 @@ L:\me\HouseKeeping\HouseKeeping\HouseKeeping\bin\Debug\net9.0\runtimes\win\lib\n
 L:\me\HouseKeeping\HouseKeeping\HouseKeeping\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 L:\me\HouseKeeping\HouseKeeping\HouseKeeping\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 L:\me\HouseKeeping\HouseKeeping\HouseKeeping\obj\Debug\net9.0\HouseKeeping.csproj.AssemblyReference.cache
-L:\me\HouseKeeping\HouseKeeping\HouseKeeping\obj\Debug\net9.0\compressed\pz40ou03i1-qu4hcwsrm3.gz
 L:\me\HouseKeeping\HouseKeeping\HouseKeeping\obj\Debug\net9.0\HouseKee.AF5B63F5.Up2Date
+L:\me\HouseKeeping\HouseKeeping\HouseKeeping\obj\Debug\net9.0\HouseKeeping.sourcelink.json
+L:\me\HouseKeeping\HouseKeeping\HouseKeeping\obj\Debug\net9.0\compressed\pz40ou03i1-9032hsj9kx.gz

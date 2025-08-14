@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model HouseKeeping.Models.Housekeeper;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +14,10 @@
    <div class="row g-4">
             <!-- Rooms -->
             <div class="col-md-4 col-lg-3">
-                <a href="/rooms" class="card-link">
+                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#roomsModal">
                 <div class="card text-white bg-primary shadow h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Rooms</h5>
+                        <h5 class="card-title">غرف</h5>
                         <p class="card-text display-6">41</p>
                     </div>
                 </div>
@@ -68,3 +69,45 @@
     </div>
 </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="roomsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roomsModalLabel">Fleet Clubs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Cards inside the modal -->
+                <div class="row">
+                    <!-- FleetClub1 Card -->
+                    <div class="col-md-3 col-lg-5">
+                        <a href="/rooms/fleetclub1" class="card-link">
+                <div class="card text-white bg-info shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Fleetclub1</h5>
+                        <p class="card-text display-6">29</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+                    <!-- FleetClub2 Card -->
+                    <div class="col-md-3 col-lg-5">
+                        <a href="/rooms/fleetclub2" class="card-link">
+                <div class="card text-white bg-info shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">FleetClub2</h5>
+                        <p class="card-text display-6">12</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
