@@ -1,0 +1,109 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.date-label {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #f8f9fa;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+      color: #333;
+      z-index: 1050;
+    }
+
+     body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .btn-login {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+        /* Medium tablet (portrait) adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            .btn-login {
+                font-size: 1.1rem;
+                padding: 12px 24px;
+            }
+        }
+        /* Small devices (phones in landscape mode and up) */
+        @media (max-width: 576px) {
+            .title {
+                font-size: 2rem;
+            }
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            .btn-login {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+         
