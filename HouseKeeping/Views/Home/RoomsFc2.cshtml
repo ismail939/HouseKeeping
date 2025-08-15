@@ -1,1 +1,91 @@
-FleetClub 2
+@using Microsoft.VisualBasic
+
+@{
+    var rooms = new List<List<string>>
+{
+    new List<string> { "1001" , "1002", "1003", "1004", "1005", "1006" },
+    new List<string> {"2000", "2001", "2002", "2003", "2004" },
+};
+
+
+    var floors = new List<int> { 1, 2, 3, 4 };
+    var i = 0;
+}
+<body>
+    
+<div class="container p-4">
+    @foreach (var floor in rooms)
+    {
+        var floorPrefix = floors[i];
+        i++;
+        if (floor.Any())
+        {
+            
+            <p class="mt-4 fw-bold">Floor @floorPrefix</p>
+
+            <div class="row g-3">  <!-- g-3 adds gutters between cols -->
+                @foreach (var room in floor)
+                {
+                    <!-- Responsive columns: full width xs, 6 cols on sm, 4 cols md, 3 cols lg -->
+                    <div class="col">
+                         <div class="card text-white bg-primary shadow h-100 room-card"
+                                 data-room="@room"
+                                 onclick="toggleRoomSelection(this)"
+                                 style="cursor:pointer;">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-0">@room</h5>
+                                </div>
+                            </div>
+                    </div>
+                }
+            </div>
+           
+        }
+    }
+</div>
+<a href="javascript:history.back()" class="btn btn-secondary">
+    ← Back
+</a>
+
+</body>
+
+
+
+@section Scripts {
+    <script>
+        // Store selected room numbers
+       let selectedRooms = (sessionStorage.getItem("SelectedRooms") || "").split(',').filter(Boolean);
+
+        function toggleRoomSelection(card) {
+            const roomNumber = card.getAttribute('data-room');
+
+            if (selectedRooms.includes(roomNumber)) {
+                // Deselect
+                selectedRooms = selectedRooms.filter(r => r !== roomNumber);
+                card.classList.remove('border-warning');
+            } else {
+                // Select
+                selectedRooms.push(roomNumber);
+                card.classList.add('border-warning');
+            }
+
+            // Update sessionStorage with concatenated string
+            const roomString = selectedRooms.join(',');
+            sessionStorage.setItem("SelectedRooms", roomString);
+        }
+
+        // Optional: Load previous selection from sessionStorage on page load
+        window.onload = function () {
+            const stored = sessionStorage.getItem("SelectedRooms");
+            console.log("Stored Rooms:", stored);
+            if (stored) {
+                selectedRooms = stored.split(',');
+                selectedRooms.forEach(room => {
+                    const card = document.querySelector(`.room-card[data-room="${room}"]`);
+                    if (card) card.classList.add('border-warning');
+                });
+               
+            }
+        }
+    </script>
+}

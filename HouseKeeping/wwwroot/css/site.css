@@ -109,3 +109,7 @@ body {
          .card-link {
             text-decoration: none;
          }
+
+         .room-card.border-warning {
+        border: 6px solid rgb(13, 243, 24) !important;
+    }
