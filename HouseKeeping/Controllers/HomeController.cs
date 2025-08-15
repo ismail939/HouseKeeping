@@ -75,6 +75,34 @@ public class HomeController : Controller
 
         return RedirectToAction("GetAllHousekeepers");
     }
+    [HttpGet]
+    [Route("/housekeeper/delete/{id}")]
+    public IActionResult DeleteHousekeeper(int id)
+    {
+        var housekeeper = _dbContext.Housekeepers.Find(id);
+        if (housekeeper == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Housekeepers.Remove(housekeeper);
+        _dbContext.SaveChanges();
+
+        return RedirectToAction("GetAllHousekeepers");
+    }
+    [HttpGet]
+    [Route("/rooms/fleetclub1")]
+    public IActionResult FleetClub1()
+    {
+        return View("RoomsFc1");
+    }
+    [HttpGet]
+    [Route("/rooms/fleetclub2")]
+    public IActionResult FleetClub2()
+    {
+        return View("RoomsFc2");
+    }
+
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

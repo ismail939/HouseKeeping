@@ -11,7 +11,7 @@ public class AdminAuthMiddleware
     {
         var path = context.Request.Path.Value?.ToLower();
 
-        var protectedPaths = new[] {"/housekeepers", "/housekeeper" }; // all paths should be protected
+        var protectedPaths = new[] {"/rooms/fleetclub1", "/rooms/fleetclub2", "/housekeepers", "/housekeeper" }; // all paths should be protected
         bool isProtected = protectedPaths.Any(path.StartsWith);
        
         // Check if it's an admin route
